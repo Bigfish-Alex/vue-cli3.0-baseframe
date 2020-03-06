@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import store from 'store/index'
 Vue.use(Router)
 const router = new Router({
+    mode:'history',
     routes: [
         {
             path: '/',
@@ -35,6 +36,26 @@ const router = new Router({
             meta: {
                 auth: false,
                 keepAlive: true
+            }
+        },
+        {
+            path: '/selfComponentsList',
+            name: 'selfComponentsList',
+            component: () =>
+                import(/* webpackChunkName: "login" */ './views/selfComponentsList.vue'),
+            meta: {
+                auth: false,
+                keepAlive: true
+            }
+        },
+        {
+            path: '/examplesTransferPara',
+            name: 'transferPara',
+            component: () =>
+                import(/* webpackChunkName: "login" */ './views/examples/transferPara.vue'),
+            meta: {
+                auth: false,
+                keepAlive: false
             }
         },
         {

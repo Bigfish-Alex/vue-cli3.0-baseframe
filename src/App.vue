@@ -1,8 +1,8 @@
 <template>
     <div id="app">
         <transition :name="transitionName">
-            <keep-alive>
-                <router-view v-if="$route.meta.keepAlive" class="router"></router-view>
+            <keep-alive v-if="$route.meta.keepAlive">
+                <router-view class="router"></router-view>
             </keep-alive>
             <router-view v-if="!$route.meta.keepAlive" class="router"></router-view>
         </transition>
@@ -22,6 +22,7 @@ export default {
 <style lang="scss">
 @import "./node_modules/normalize.css/normalize";
 @import "style/common.scss";
+@import "style/_variables.scss";
 #app {
     font-family: "Avenir", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
